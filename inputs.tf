@@ -30,6 +30,7 @@ variable "backend_subnets" {
 }
 
 variable "vpc_tags" {
+    default = { Name = "Built via terraform"}
 }
 
 variable "primary_subnet_name" {
@@ -39,10 +40,10 @@ variable "secondary_subnet_name" {
 }
 variable "backend_subnet_name" {
 }
-variable "vpc_primary_public_ip_on_lauch" {
+variable "vpc_primary_public_ip_on_launch" {
 }
 
-variable "vpc_secondary_public_ip_on_lauch" {
+variable "vpc_secondary_public_ip_on_launch" {
 }
 
 variable "sub_azs" {

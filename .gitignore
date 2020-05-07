@@ -1,2 +1,4 @@
 .terraform/
 backend.tf
+go.mod
+go.sum

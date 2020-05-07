@@ -17,8 +17,8 @@ module "generic_vpc" {
   vpc_secondary_sub_cidr           = var.private_subnets
   vpc_primary_subnet_name          = var.primary_subnet_name
   vpc_secondary_subnet_name        = var.secondary_subnet_name
-  vpc_primary_public_ip_on_lauch   = var.vpc_primary_public_ip_on_lauch
-  vpc_secondary_public_ip_on_lauch = var.vpc_secondary_public_ip_on_lauch
+  vpc_primary_public_ip_on_launch   = var.vpc_primary_public_ip_on_launch
+  vpc_secondary_public_ip_on_launch = var.vpc_secondary_public_ip_on_launch
 }
 
 module "backend-subnets" {

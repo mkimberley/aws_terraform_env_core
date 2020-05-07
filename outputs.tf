@@ -9,4 +9,3 @@ output "private_subnets" {
 output "core_vpc_id" {
   value = module.generic_vpc.vpc_id
 }
-
