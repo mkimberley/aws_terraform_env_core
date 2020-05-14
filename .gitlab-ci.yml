@@ -34,7 +34,7 @@ plan:
 apply:
   stage: apply
   script:
-    - terraform apply --var-file="vars/variables.tfvars" -input=false "planfile"
+    - terraform apply -input=false "planfile"
   dependencies:
     - plan
   when: manual
