@@ -2,5 +2,5 @@
 backend.tf
 go.mod
 go.sum
-.tfstate
-.tfstate.backup
+*.tfstate
+*.tfstate.backup
