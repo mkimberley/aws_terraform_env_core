@@ -64,7 +64,7 @@ func TestTerraformAwsNetworkExample(t *testing.T) {
 	terraform.InitAndApply(t, terraformOptions)
 
 	// Run `terraform output` to get the value of an output variable
-	publicSubnetId := terraform.Output(t, terraformOptions, "public_subnets")
+	publicSubnetId := terraform.OutputList(t, terraformOptions, "public_subnets")
 	privateSubnetId := terraform.Output(t, terraformOptions, "private_subnets")
 	vpcId := terraform.Output(t, terraformOptions, "core_vpc_id")
 
@@ -72,7 +72,9 @@ func TestTerraformAwsNetworkExample(t *testing.T) {
 
 	require.Equal(t, 9, len(subnets))
 	// Verify if the network that is supposed to be public is really public
-	assert.True(t, aws.IsPublicSubnet(t, publicSubnetId, awsRegion))
+	for i := 0; i < len(publicSubnetId); i++ {
+		assert.True(t, aws.IsPublicSubnet(t, publicSubnetId[i], awsRegion))
+	}
 	// Verify if the network that is supposed to be private is really private
 	assert.False(t, aws.IsPublicSubnet(t, privateSubnetId, awsRegion))
 }

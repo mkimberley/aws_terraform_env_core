@@ -4,7 +4,7 @@ provider "aws" {
 
 module "generic_vpc" {
   source                           = "git::https://github.com/mkimberley/aws_terraform_mod_common//network/vpc"
-  #source                           = "../aws_terraform_mod_common//network/vpc"
+#  source                           = "../aws_terraform_mod_common//network/vpc"
   vpc_environment                  = var.environment
   vpc_name                         = var.vpc_name
   vpc_cidr                         = var.vpc_cidr
@@ -24,7 +24,7 @@ module "generic_vpc" {
 
 module "backend-subnets" {
   source                           = "git::https://github.com/mkimberley/aws_terraform_mod_common//network/subnet"
-  #source                           = "../aws_terraform_mod_common//network/subnet"
+#  source                           = "../aws_terraform_mod_common//network/subnet"
   sub_cidr_block                   = var.backend_subnets
   sub_public_ip_on_launch          = false
   sub_vpc_id                       = module.generic_vpc.vpc_id
