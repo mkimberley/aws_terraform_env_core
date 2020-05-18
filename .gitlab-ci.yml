@@ -21,23 +21,6 @@ validate:
     paths:
       - .terraform
 
-scriptlint:
-  stage: lint
-  image:
-    name: "koalaman/shellcheck-alpine"
-  script:
-    - shellcheck scripts/*
-
-terralint:
-  stage: lint
-  image:
-    name: "wata727/tflint"
-    entrypoint:
-      - "/usr/bin/env"
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  script:
-    - tflint
-
 terratest:
   stage: test
   image:
