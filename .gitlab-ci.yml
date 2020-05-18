@@ -2,7 +2,6 @@
 
 stages:
   - validate
-  - lint
   - test
   - plan
   - apply
