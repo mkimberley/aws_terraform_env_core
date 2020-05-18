@@ -10,7 +10,7 @@ stages:
 validate:
   stage: validate
   image:
-    name: "hashicorp/terraform:0.12.8"
+    name: "hashicorp/terraform:latest
     entrypoint:
       - "/usr/bin/env"
       - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
