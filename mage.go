@@ -16,7 +16,7 @@ var Default = Full
 
 // A build step that runs Clean, Format, Unit and Integration in sequence
 func Full() {
-	mg.Deps(Unit)
+	mg.Deps(Format)
 	mg.Deps(Integration)
 }
 
@@ -25,7 +25,7 @@ func Unit() error {
 	mg.Deps(Clean)
 	mg.Deps(Format)
 	fmt.Println("Running unit tests...")
-	return sh.RunV("go", "test", "./test/", "-run", "TestUT_", "-v")
+	return sh.RunV("go", "test", "test/", "-v")
 }
 
 // A build step that runs integration tests
@@ -33,7 +33,7 @@ func Integration() error {
 	mg.Deps(Clean)
 	mg.Deps(Format)
 	fmt.Println("Running integration tests...")
-	return sh.RunV("go", "test", "./test/", "-run", "TestIT_", "-v")
+	return sh.RunV("go", "test", "./test/", "-v")
 }
 
 // A build step that formats both Terraform code and Go code

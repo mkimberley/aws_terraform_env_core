@@ -30,6 +30,7 @@ terratest:
   script:
     - currdir=$(pwd)
     - apk add --no-cache gcc libc-dev bind-tools
+    - go get github.com/gruntwork-io/terratest/modules/aws
     - go get -u -d github.com/magefile/mage
     - cd $GOPATH/src/github.com/magefile/mage
     - go run bootstrap.go

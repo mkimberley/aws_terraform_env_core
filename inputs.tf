@@ -12,25 +12,25 @@ variable "vpc_enable_dns_support" {
 }
 
 variable "public_subnets" {
-    description = "A list of subnets"
-    type        = list(string)
-    default     = []
+  description = "A list of subnets"
+  type        = list(string)
+  default     = []
 }
 
 variable "private_subnets" {
-    description = "A list of subnets"
-    type        = list(string)
-    default     = []
+  description = "A list of subnets"
+  type        = list(string)
+  default     = []
 }
 
 variable "backend_subnets" {
-    description = "A list of subnets"
-    type        = list(string)
-    default     = []
+  description = "A list of subnets"
+  type        = list(string)
+  default     = []
 }
 
 variable "vpc_tags" {
-    default = { Name = "Built via terraform"}
+  default = { Name = "Built via terraform" }
 }
 
 variable "primary_subnet_name" {
@@ -47,8 +47,8 @@ variable "vpc_secondary_public_ip_on_launch" {
 }
 
 variable "sub_azs" {
-    description = "A list of AZs"
-    type        = list(string)
-    default = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+  description = "A list of AZs"
+  type        = list(string)
+  default     = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
 }
 
