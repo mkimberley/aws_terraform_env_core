@@ -31,10 +31,7 @@ terratest:
     - currdir=$(pwd)
     - apk add --no-cache gcc libc-dev bind-tools
     - go get -u -d github.com/magefile/mage
-    - magedir=$(find /go/pkg/mod/ -name magefile -type d | grep -v cache)
-    - echo $magedir
-    - echo $magedir/$(ls $magedir/)
-    - cd $magedir/$(ls $magedir/)
+    - cd $GOPATH/src/github.com/magefile/mage
     - go run bootstrap.go
     - cd $currdir
     - mage full
