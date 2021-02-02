@@ -4,3 +4,4 @@ go.mod
 go.sum
 *.tfstate
 *.tfstate.backup
+.terraform*
