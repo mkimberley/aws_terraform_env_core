@@ -1,3 +1,4 @@
+//go:build mage
 // +build mage
 
 package main
@@ -7,8 +8,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/magefile/mage/mg"
-	"github.com/magefile/mage/sh"
+	"github.com/magefile/mage/mg" // mg contains helpful utility functions, like Deps
+	"github.com/magefile/mage/sh" // mg contains helpful utility functions, like Deps
+
 )
 
 // The default target when the command executes `mage` in Cloud Shell
