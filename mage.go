@@ -8,9 +8,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/magefile/mage/mg" // mg contains helpful utility functions, like Deps
-	"github.com/magefile/mage/sh" // mg contains helpful utility functions, like Deps
-
+	"github.com/magefile/mage/mg"
+	"github.com/magefile/mage/sh"
 )
 
 // The default target when the command executes `mage` in Cloud Shell
