@@ -1,12 +1,12 @@
 package test
 
 import (
-	"testing"
-
+	"fmt"
 	"github.com/gruntwork-io/terratest/modules/aws"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
 )
 
 // An example of how to test the Terraform module in examples/terraform-aws-network-example using Terratest.
@@ -65,7 +65,7 @@ func TestTerraformAwsNetworkExample(t *testing.T) {
 
 	// Run `terraform output` to get the value of an output variable
 	publicSubnetId := terraform.OutputList(t, terraformOptions, "public_subnets")
-	privateSubnetId := terraform.Output(t, terraformOptions, "private_subnets")
+	privateSubnetId := terraform.OutputList(t, terraformOptions, "private_subnets")
 	vpcId := terraform.Output(t, terraformOptions, "core_vpc_id")
 
 	subnets := aws.GetSubnetsForVpc(t, vpcId, awsRegion)
@@ -73,8 +73,11 @@ func TestTerraformAwsNetworkExample(t *testing.T) {
 	require.Equal(t, 9, len(subnets))
 	// Verify if the network that is supposed to be public is really public
 	for i := 0; i < len(publicSubnetId); i++ {
+		fmt.Println(publicSubnetId[i])
 		assert.True(t, aws.IsPublicSubnet(t, publicSubnetId[i], awsRegion))
 	}
 	// Verify if the network that is supposed to be private is really private
-	assert.False(t, aws.IsPublicSubnet(t, privateSubnetId, awsRegion))
+	for i := 0; i < len(privateSubnetId); i++ {
+		assert.False(t, aws.IsPublicSubnet(t, privateSubnetId[i], awsRegion))
+	}
 }
